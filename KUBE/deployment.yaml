@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: esmail-app-deployment
+  labels:
+    app: esmail-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: esmail-app
+  template:
+    metadata:
+      labels:
+        app: esmail-app
+    spec:
+      containers:
+        - name: esmail-app-container
+          image: esmail1055/my-nginx-image:latest
+          ports:
+            - containerPort: 80
+
